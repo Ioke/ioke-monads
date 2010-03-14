@@ -5,13 +5,36 @@ describe(Monad,
   it("should have tests")
 )
 
-describe(nil,
+describe(Identity,
   describe("monad",
     it("should have tests")
+
+    it("should support a basic usage pattern",
+      Identity monad {
+        x <- 42,
+        return(x + 10)
+        } should == 52
+
+      Identity monad {
+        x <- 42,
+        y <- 55,
+        return(x * y)
+        } should == 2310
+    )
+
+    it("should work using the Identity monad directly",
+      i = Identity monad
+      
+      i <-(42,
+        fn(x,
+          i <-(55,
+            fn(y,
+              i return(x * y))))) should == 2310
+    )
   )
 )
 
-describe(Identity,
+describe(nil,
   describe("monad",
     it("should have tests")
   )
