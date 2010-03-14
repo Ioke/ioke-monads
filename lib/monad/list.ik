@@ -1,11 +1,10 @@
 
-ListMonad = Monad mimic
-List monad = ListMonad
+List monad = Monad mimic
 
 ; Monadic bind
-ListMonad cell(:"<-") = method(p, rest,
+List monad <- = method(p, rest,
   p inject([], collected, current, collected + rest call(current))
 )
 
 ; Monadic return
-ListMonad return = method(val, list(val))
+List monad return = method(val, list(val))

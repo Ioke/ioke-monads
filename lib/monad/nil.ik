@@ -1,13 +1,12 @@
 
-NilMonad = Monad mimic
-nil monad = NilMonad
+nil monad = Monad mimic
 
 ; Monadic bind
-NilMonad cell(:"<-") = method(p, rest,
+nil monad <- = method(p, rest,
   if(p nil?,
     nil,
     rest call(p))
 )
 
 ; Monadic return
-NilMonad return = method(val, val)
+nil monad return = method(val, val)

@@ -3,7 +3,7 @@ Identity = Monad mimic
 Identity monad = Identity
 
 ; Monadic bind
-Identity cell(:"<-") = method(p, rest,
+Identity <- = method(p, rest,
   rest call(p)
 )
 
