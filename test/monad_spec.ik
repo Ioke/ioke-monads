@@ -60,7 +60,15 @@ describe(nil,
 
 describe(List,
   describe("monad",
-    it("should have tests")
+    it("should work using the List monad directly",
+      i = List monad
+      
+      i <-([1,2,3],
+        fn(x,
+          i <-([5,6,7],
+            fn(y,
+              i return(x*y))))) should == [5,6,7,10,12,14,15,18,21]
+    )
   )
 )
 

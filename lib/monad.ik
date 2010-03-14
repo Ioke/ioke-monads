@@ -3,6 +3,9 @@ Monad = Origin mimic
 
 
 
+
+
+
 Identity = Monad mimic
 Identity monad = Identity
 
@@ -13,6 +16,13 @@ Identity cell(:"<-") = method(p, rest,
 
 ; Monadic return
 Identity return = method(val, val)
+
+
+
+
+
+
+
 
 
 
@@ -28,6 +38,30 @@ NilMonad cell(:"<-") = method(p, rest,
 
 ; Monadic return
 NilMonad return = method(val, val)
+
+
+
+
+
+
+
+
+
+ListMonad = Monad mimic
+List monad = ListMonad
+
+; Monadic bind
+ListMonad cell(:"<-") = method(p, rest,
+  p inject([], collected, current, collected + rest call(current))
+)
+
+; Monadic return
+ListMonad return = method(val, list(val))
+
+
+
+
+
 
 
 
